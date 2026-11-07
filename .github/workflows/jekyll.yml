@@ -45,15 +45,20 @@ jobs:
           uglifyjs assets/js/plugins/jquery.greedy-navigation.js assets/js/_main.js assets/js/theme.js -c -m -o assets/js/main.min.js
       - name: Configure GitHub Pages
         id: pages
+        continue-on-error: true
         uses: actions/configure-pages@v6.0.0
         with:
           enablement: true
       - name: Build with Jekyll
+        # Runs even if Pages is not yet enabled so the site can still be validated.
+        if: always()
         # Outputs to the './_site' directory by default
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
       - name: Upload GitHub Pages artifact
+        if: always()
+        continue-on-error: true
         uses: actions/upload-pages-artifact@v5.0.0
 
   # Deployment job
@@ -66,4 +71,5 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
+        if: success() && needs.build.result == 'success'
         uses: actions/deploy-pages@v5
