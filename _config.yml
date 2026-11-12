@@ -11,7 +11,6 @@ repository               : "catchurchinrouter/LJT-Homepage"
 
 # Site Author
 author:
-  # Biographic information
   avatar           : "profile.svg"
   name             : "Junteng Liu"
   pronouns         :
@@ -21,7 +20,6 @@ author:
   uri              :
   email            : "jliugi@connect.ust.hk"
 
-  # Academic websites
   academia         :
   arxiv            :
   googlescholar    : "https://scholar.google.com/citations?hl=en&user=tbK9jl4AAAAJ&view_op=list_works&sortby=pubdate"
@@ -35,7 +33,6 @@ author:
   scopus           :
   zotero           :
 
-  # Repositories and software development
   bitbucket        :
   codepen          :
   dribbble         :
@@ -43,7 +40,6 @@ author:
   kaggle           :
   stackoverflow    :
 
-  # Social media
   artstation       :
   bluesky          :
   facebook         :
@@ -70,7 +66,6 @@ author:
   youtube          :
   zhihu            :
 
-# Publication Category headings used by the theme configuration
 publication_category:
   preprints:
     title: 'Preprints'
@@ -153,12 +148,14 @@ exclude:
   - .github
   - .jekyll-assets-cache
   - .sass-cache
+  - AGENTS.md
   - assets/js/_main.js
   - assets/js/plugins
   - assets/js/vendor
   - CHANGELOG
   - Capfile
   - config
+  - docker-compose.yaml
   - Dockerfile
   - Gemfile
   - Gruntfile.js
@@ -166,10 +163,16 @@ exclude:
   - LICENSE
   - local
   - log
+  - markdown_generator
   - node_modules
   - package.json*
   - Rakefile
   - README
+  - scripts
+  - talkmap
+  - talkmap.ipynb
+  - talkmap.py
+  - talkmap_out.ipynb
   - tmp
   - vendor
 keep_files:
@@ -198,22 +201,22 @@ kramdown:
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
 
-# Collections used by the template
+# Only the publications collection is part of the requested site.
+# Unused template collections remain in the fork source but do not render.
 collections:
-  teaching:
-    output: true
-    permalink: /:collection/:path/
   publications:
     output: true
     permalink: /:collection/:path/
+  teaching:
+    output: false
   portfolio:
-    output: true
-    permalink: /:collection/:path/
+    output: false
   talks:
-    output: true
-    permalink: /:collection/:path/
+    output: false
+  posts:
+    output: false
 
-# Defaults for pages and collections
+# Defaults for pages and collection rendering
 defaults:
   - scope:
       path: ""
