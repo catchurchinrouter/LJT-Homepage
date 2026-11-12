@@ -139,7 +139,6 @@ analytics:
 include:
   - .htaccess
   - _pages
-  - files
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
@@ -157,6 +156,7 @@ exclude:
   - config
   - docker-compose.yaml
   - Dockerfile
+  - files
   - Gemfile
   - Gruntfile.js
   - gulpfile.js
@@ -277,7 +277,6 @@ timezone: Etc/UTC
 
 # Plugins
 plugins:
-  - jekyll-feed
   - jekyll-gist
   - jekyll-paginate
   - jekyll-sitemap
@@ -285,7 +284,6 @@ plugins:
   - jemoji
 
 whitelist:
-  - jekyll-feed
   - jekyll-gist
   - jekyll-paginate
   - jekyll-sitemap
