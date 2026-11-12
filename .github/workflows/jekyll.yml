@@ -43,6 +43,7 @@ jobs:
       - name: Build with Jekyll
         env:
           PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          JEKYLL_ENV: production
         run: |
           set -euo pipefail
           BASEURL="${PAGES_BASE_PATH:-}"
@@ -51,8 +52,6 @@ jobs:
           fi
           echo "Building with baseurl: $BASEURL"
           bundle exec jekyll build --baseurl "$BASEURL"
-        env:
-          JEKYLL_ENV: production
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v5.0.0
 
